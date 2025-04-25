@@ -20,10 +20,10 @@ namespace VjezbeAlgebraMetode
             //NumberOfCharArrayOccurencesInStringArray();
             //CheckCredentials();
             //FillAndPrintAttendanceList();
-            // CalculateGradeAverage();
+            //CalculateGradeAverage();
 
             //CompareAnimalArrays();
-            //NumbersInPyramidPattern();
+            //PrintNumbersInPyramidPattern();
             //SortArrayAscending();
             //PrintOddNumbersInRange(56);
             //PrintNumbersFromInterval(2, 45);
@@ -429,7 +429,7 @@ namespace VjezbeAlgebraMetode
 
         // 2. Zadatak (Fran Pepic) - Prikazite obrazac poput piramide s brojevima uvecanim za 1
 
-        static void NumbersInPyramidPattern(byte first = 1, byte second = 5)
+        static void PrintNumbersInPyramidPattern(byte first = 1, byte second = 5)
         {
 
             for (int x = 1; x <= second; x++)
