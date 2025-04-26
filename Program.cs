@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,27 +11,39 @@ namespace VjezbeAlgebraMetode
     {
         static void Main(string[] args)
         {
+            // # 1
             //LoopWhileSmallerThan10(4);
             //LoopWhileBiggerThan0(7);
             //LoopingForeverWithOptionToStop(2);
             //InputGrades();
             //CountingCharactersInSentence("Hi, how are you??");
 
+            // # 2
             //StringArrayToSentence(new string[] { "Good", "morning", "how", "are", "you" });
             //NumberOfCharArrayOccurencesInStringArray();
             //CheckCredentials();
             //FillAndPrintAttendanceList();
             //CalculateGradeAverage();
 
+            // # 3
             //CompareAnimalArrays();
             //PrintNumbersInPyramidPattern();
             //SortArrayAscending();
             //PrintOddNumbersInRange(56);
             //PrintNumbersFromInterval(2, 45);
 
+            // # 4
+            //CountSpaces("Good evening, how are you?", "What date is today?", "Please can you show me directions to reach the downtown?");
+            //ReverseWordsOrderInSentence("good morning how can I help you");
+            //BuildArray(2.1F, 5.322F, 4.1234124F, 2.11F, 8.12345F);
+            //SwitchIndexOfMaxMin(200, 224, 36, 10);
+            //TryDivide(456, 5);
+
+            //IsItPalindrome("refer");
+
         }
 
-        // TURA #1
+        // TURA # 1
 
 
         // 1.Zadatak - Primjer konacne petlje koja ima uvjet ako je x manji od 10
@@ -140,7 +153,7 @@ namespace VjezbeAlgebraMetode
         }
 
 
-        // TURA #2
+        // TURA # 2
 
 
         // 1. Zadatak - Kopirajte jedan niz u drugi niz, uz unos pojedinih rijeci, sastavljanje recenice
@@ -401,7 +414,7 @@ namespace VjezbeAlgebraMetode
         }
 
 
-        // TURA #3
+        // TURA # 3
 
 
         // 1. Zadatak - Petlja koja usporedjuje nizove zivotinja
@@ -425,9 +438,9 @@ namespace VjezbeAlgebraMetode
                 }
             }
         }
-        
 
-        // 2. Zadatak (Fran Pepic) - Prikazite obrazac poput piramide s brojevima uvecanim za 1
+
+        // 2. Zadatak - Prikazite obrazac poput piramide s brojevima uvecanim za 1 (Fran Pepic) 
 
         static void PrintNumbersInPyramidPattern(byte first = 1, byte second = 5)
         {
@@ -512,6 +525,129 @@ namespace VjezbeAlgebraMetode
                     Console.WriteLine($"Number {x} is divisible with number 5!");
                 }
             }
+        }
+
+
+        // TURA # 4
+
+
+        // 1.Zadatak - Primjer metode koja broji razmake izmedju rijeci. Unos nekoliko recenica
+
+        static byte CountSpaces(string sentence1, string sentence2, string sentence3)
+        {
+            byte counter = 0;
+
+            string totalSentence = sentence1 + sentence2 + sentence3;
+
+            foreach (char character in totalSentence)
+            {
+                if (character == ' ')
+                {
+                    counter += 1;
+                }
+            }
+
+            return counter;
+        }
+
+        // 2.Zadatak - Primjer metode koja barata sa kolekcijama za ispis rijeci u recenici obrnuto
+
+        static string ReverseWordsOrderInSentence(string sentence)
+        {
+            string[] sentenceArray = sentence.Split(' ');
+
+            Array.Reverse(sentenceArray);
+
+            string reversedSentence = string.Join(",", sentenceArray);
+
+            return reversedSentence;
+        }
+
+        // 3.Zadatak - Primjer istoimene metode sa razlicitim tipovima podataka i/ili parametrima (overload)
+
+        static int[] BuildArray(int first, int second, int third, int fourth, int fifth)
+        {
+            int[] builtArray = { first, second, third, fourth, fifth };
+            return builtArray;
+        }
+
+        static float[] BuildArray(float first, float second, float third, float fourth, float fifth)
+        {
+            float[] builtArray = { first, second, third, fourth, fifth };
+            return builtArray;
+        }
+
+
+        // 4.Zadatak - Primjer metode za zamjenu mjesta najveceg i najmanjeg broja
+
+        static byte[] SwitchIndexOfMaxMin(byte first, byte second, byte third, byte fourth)
+        {
+            byte[] byteArray = { first, second, third, fourth };
+
+            byte byteMax = byteArray.Max();
+            byte byteMin = byteArray.Min();
+
+            int byteMaxIndex = Array.IndexOf(byteArray, byteMax);
+            int byteMinIndex = Array.IndexOf(byteArray, byteMin);
+
+            byteArray[byteMaxIndex] = byteMin;
+            byteArray[byteMinIndex] = byteMax;
+
+            return byteArray;
+        }
+
+        // 5.Zadatak - Primjer metode koja odredjuje da li je broj djeljiv s nekim brojem
+
+        static bool TryDivide(int dividend, int divisor)
+        {
+            int result = dividend % divisor;
+
+            if (result == 0)
+            {
+                Console.WriteLine($"Number {dividend} is divisible by number {divisor}.");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine($"Number {dividend} is NOT divisible by number {divisor}.");
+                return false;
+            }
+        }
+
+
+        // 6. Zadatak - Primjer rekurzivne metode za iscrtavanje obiteljskog stabla
+
+        static void MapFamilyTree(string grandfather, string grandmother)
+        {
+            ArrayList relations = new ArrayList();
+
+
+
+        }
+
+
+        // 7.Zadatak - Primjer metode koja otkriva da li je neka rijec palindrom
+
+        static bool IsItPalindrome(string word)
+        {
+            char[] wordToArray = word.ToCharArray();
+
+            char[] reversedArray = wordToArray.Reverse().ToArray();
+
+            string reversedWord = string.Join("", reversedArray);
+
+            if (word == reversedWord)
+            {
+                Console.WriteLine("The word which you entered IS palindrome!");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("The word which you entered IS NOT palindrome!");
+                return false;
+            }
+
+
         }
 
     }
