@@ -646,7 +646,7 @@ namespace VjezbeAlgebraMetode
 
         static bool IsItPalindrome(string word)
         {
-            if (string.IsNullOrEmpty(word))
+            if (string.IsNullOrWhiteSpace(word))
             {
                 Console.WriteLine("You have not entered any word, call the method with valid input");
                 return false;
