@@ -38,7 +38,7 @@ namespace VjezbeAlgebraMetode
             //BuildArray(2.1F, 5.322F, 4.1234124F, 2.11F, 8.12345F);
             //SwitchIndexOfMaxMin(200, 224, 36, 10);
             //TryDivide(456, 5);
-
+            //List<string> familyTree = MapFamilyTree();
             //IsItPalindrome("refer");
 
         }
@@ -617,12 +617,28 @@ namespace VjezbeAlgebraMetode
 
         // 6. Zadatak - Primjer rekurzivne metode za iscrtavanje obiteljskog stabla
 
-        static void MapFamilyTree(string grandfather, string grandmother)
+        static List<string> MapFamilyTree()
         {
-            ArrayList relations = new ArrayList();
+            List<string> familyTree = new List<string>();
 
+            Console.Write("Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Surname: ");
+            string surname = Console.ReadLine();
+            Console.Write("Relation: ");
+            string relation = Console.ReadLine();
 
+            familyTree.Add($"Name: {name}, Surname: {surname}, Relation: {relation}");
 
+            Console.Write("Write \"yes\" if you want to add more family members: ");
+            string continueAdding = Console.ReadLine();
+
+            if (continueAdding == "yes")
+            {
+                familyTree.AddRange(MapFamilyTree());
+            }
+
+            return familyTree;
         }
 
 
@@ -630,22 +646,37 @@ namespace VjezbeAlgebraMetode
 
         static bool IsItPalindrome(string word)
         {
-            char[] wordToArray = word.ToCharArray();
-
-            char[] reversedArray = wordToArray.Reverse().ToArray();
-
-            string reversedWord = string.Join("", reversedArray);
-
-            if (word == reversedWord)
+            if (string.IsNullOrEmpty(word))
             {
-                Console.WriteLine("The word which you entered IS palindrome!");
-                return true;
+                Console.WriteLine("You have not entered any word, call the method with valid input");
+                return false;
             }
             else
             {
-                Console.WriteLine("The word which you entered IS NOT palindrome!");
-                return false;
+                char[] wordToArray = word.ToCharArray();
+
+                char[] reversedArray = wordToArray.Reverse().ToArray();
+
+                string reversedWord = string.Join("", reversedArray);
+
+                Console.WriteLine($"Your input: {word}\n");
+                Console.WriteLine($"Reversed word: {reversedWord}\n");
+
+
+                if (word == reversedWord)
+                {
+                    Console.WriteLine("The word which you have entered IS palindrome!");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("The word which you have entered IS NOT palindrome!");
+                    return false;
+                }
             }
+
+
+
 
 
         }
